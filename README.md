@@ -1,3 +1,4 @@
+
 ## Installation
 
 Use your favorite plugin manager
@@ -36,4 +37,4 @@ xnoremap <Leader>sc :'<,'>%SmartCase("")<Left><Left>
 
 * Image
 
-
+https://github.com/kis9a/SmartCaseMatch/assets/65019715/8dfd660f-0f64-4978-a3b5-4100c1b4b5b1
