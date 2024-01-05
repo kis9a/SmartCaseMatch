@@ -10,7 +10,15 @@ if !exists('g:smartcasematch_keyword_pattern')
  let g:smartcasematch_keyword_pattern = '[A-Za-z0-9_-]'
 endif
 
-function! smartcasematch#Match(keyword)
+if !exists('g:smartcasematch_last_mached_pattern')
+  let g:smartcasematch_last_mached_pattern = ''
+endif
+
+function! SmartCaseMatch(keyword)
+  let @/ = SmartCaseMatchPattern(a:keyword)
+endfunction
+
+function! SmartCaseMatchPattern(keyword)
   let keyword = a:keyword
   if empty(keyword) | return | endif
   let regexp = '\l\+\|\u\l\+\|\u\+\l\@!\|\d\+'
@@ -31,7 +39,8 @@ function! smartcasematch#Match(keyword)
       break
     endif
   endwhile
-  let @/ = matchPattern
+  let g:smartcasematch_last_mached_pattern = matchPattern
+  return g:smartcasematch_last_mached_pattern
 endfunction
 
 function! smartcasematch#CursorKeyword()
@@ -49,17 +58,18 @@ function! smartcasematch#CursorKeyword()
 endfunction
 
 function! smartcasematch#VisualSelected() range
-    let s = @a
-    silent! normal! gv"ay
-    let r = @a
-    let @a = s
-    let s = match(r, '\v^' . g:smartcasematch_keyword_pattern . '+$')
-    if s < 0 | return '' | return r | endif
-    return r
+  let s = @a
+  silent! normal! gv"ay
+  let r = @a
+  let @a = s
+  let s = match(r, '\v^' . g:smartcasematch_keyword_pattern . '+$')
+  if s < 0 | return '' | return r | endif
+  return r
 endfunction
 
-command! SmartCaseMatchCursorKeyword call smartcasematch#Match(smartcasematch#CursorKeyword())
-command! SmartCaseMatchVisualSelected call smartcasematch#Match(smartcasematch#VisualSelected())
-command! -nargs=1 SmartCaseMatch call smartcasematch#Match(<q-args>)
+command! -nargs=1 SmartCaseMatch call SmartCaseMatch(<q-args>)
+command! -nargs=1 SmartCaseMatchPattern call SmartCaseMatchPattern(<q-args>)
+command! SmartCaseMatchCursorKeyword call SmartCaseMatch(smartcasematch#CursorKeyword())
+command! SmartCaseMatchVisualSelected call SmartCaseMatch(smartcasematch#VisualSelected())
 
 let g:loaded_smartcasematch_plugin = 1

@@ -1,3 +1,4 @@
+# SmartCaseMatch
 
 ## Installation
 
@@ -21,7 +22,6 @@ xnoremap s* :<C-U>SmartCaseMatchVisualSelected<CR>
 
 ## Use with vim-scripts/SmartCase
 
-
 * Install [vim-scripts/SmartCase](https://github.com/vim-scripts/SmartCase)
 
 ```vim
@@ -35,6 +35,11 @@ nnoremap <Leader>sc :%SmartCase("")<Left><Left>
 xnoremap <Leader>sc :'<,'>%SmartCase("")<Left><Left>
 ```
 
-* Image
+<image width="640px" src="https://raw.githubusercontent.com/kis9a/SmartCaseMatch/main/doc/smartcasematch_01.gif"></image>
 
-https://github.com/kis9a/SmartCaseMatch/assets/65019715/8dfd660f-0f64-4978-a3b5-4100c1b4b5b1
+```vim
+nnoremap sg :vimgrep <C-R>=string(SmartCaseMatchPattern(''))<Left><Left><Left>
+nnoremap <Leader>sg :cdo s/<C-R>=printf(g:smartcasematch_last_mached_pattern)<CR>/\=SmartCase('')<Left><Left>
+```
+
+<image width="640px" src="https://raw.githubusercontent.com/kis9a/SmartCaseMatch/main/doc/smartcasematch_02.gif"></image>

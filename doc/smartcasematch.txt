@@ -1,0 +1,48 @@
+*smartcasematch.txt* *smartcasematch*
+
+==============================================================================
+INTRODUCTION                                    *smartcasematch-introduction*
+
+Decomposes and matches string cases across separators
+
+==============================================================================
+VARIABLES                                          *smartcasematch-variables*
+
+g:smartcasematch_separator_pattern
+g:smartcasematch_keyword_pattern
+g:smartcasematch_last_mached_pattern
+
+==============================================================================
+COMMANDS                                            *smartcasematch-commands*
+
+:SmartCaseMatch <keyword>
+:SmartCaseMatchPattern <keyword>
+:SmartCaseMatchCursorKeyword
+:SmartCaseMatchVisualSelected
+
+==============================================================================
+FUNCTIONS                                          *smartcasematch-functions*
+
+SmartCaseMatch(<q-args>)
+SmartCaseMatchPattern(<q-args>)
+
+==============================================================================
+EXAMPLES                                            *smartcasematch-examples*
+
+nnoremap s* :SmartCaseMatchCursorKeyword<CR>
+nnoremap s# :SmartCaseMatchCursorKeyword<CR>
+xnoremap s* :<C-U>SmartCaseMatchVisualSelected<CR>
+xnoremap s# :<C-U>SmartCaseMatchVisualSelected<CR>
+
+  Plug 'vim-scripts/SmartCase'
+
+nnoremap <Leader>sc :%SmartCase('')<Left><Left>
+xnoremap <Leader>sc :'<,'>%SmartCase('')<Left><Left>
+
+  vimgrep
+
+nnoremap sg :vimgrep <C-R>=string(SmartCaseMatchPattern(''))<Left><Left><Left>
+nnoremap <Leader>sg :cdo s/<C-R>=printf(g:smartcasematch_last_mached_pattern)<CR>/\=SmartCase('')<Left><Left>
+
+==============================================================================
+vim:tw=78:ts=8:ft=help:norl
