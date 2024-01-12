@@ -3,21 +3,22 @@
 ==============================================================================
 INTRODUCTION                                    *smartcasematch-introduction*
 
-Decomposes and matches string cases across separators
+Split the string with a separator and search the string in all cases
 
 ==============================================================================
 VARIABLES                                          *smartcasematch-variables*
 
 g:smartcasematch_separator_pattern
-g:smartcasematch_keyword_pattern
+g:smartcasematch_string_pattern
+g:smartcasematch_split_pattern
 g:smartcasematch_last_mached_pattern
 
 ==============================================================================
 COMMANDS                                            *smartcasematch-commands*
 
-:SmartCaseMatch <keyword>
-:SmartCaseMatchPattern <keyword>
-:SmartCaseMatchCursorKeyword
+:SmartCaseMatch <string>
+:SmartCaseMatchPattern <string>
+:SmartCaseMatchCursorString
 :SmartCaseMatchVisualSelected
 
 ==============================================================================
@@ -29,8 +30,8 @@ SmartCaseMatchPattern(<q-args>)
 ==============================================================================
 EXAMPLES                                            *smartcasematch-examples*
 
-nnoremap s* :SmartCaseMatchCursorKeyword<CR>
-nnoremap s# :SmartCaseMatchCursorKeyword<CR>
+nnoremap s* :SmartCaseMatchCursorString<CR>
+nnoremap s# :SmartCaseMatchCursorString<CR>
 xnoremap s* :<C-U>SmartCaseMatchVisualSelected<CR>
 xnoremap s# :<C-U>SmartCaseMatchVisualSelected<CR>
 

@@ -2,9 +2,9 @@
 
 ## Overview 
 
-SmartCaseMatch is a plugin created to simplify the use of [vim-scripts/SmartCase](https://github.com/vim-scripts/SmartCase). SmartCaseMatch decomposes a given string with delimiters and searches the string for all cases.
+SmartCaseMatch is a vim plugin created to simplify the use of [vim-scripts/SmartCase](https://github.com/vim-scripts/SmartCase). SmartCaseMatch split the string with a separator and search the string in all cases.
 
-The advantage of [vim-scripts/SmartCase](https://github.com/vim-scripts/SmartCase) is its simplicity. The SmartCase functions provided work very well and can convert strings while preserving the string case. It will also be easy to understand the processing of the functions. However, conversion of strings containing numbers or taking plurals into account is not supported, so if more advanced conversion is required, it is recommended to use [tpope/vim-abolish](https://github.com/tpope/vim-abolish).
+The advantage of [vim-scripts/SmartCase](https://github.com/vim-scripts/SmartCase) is its simplicity. The SmartCase functions provided work very well and can replace string while maintaining the original string case. It will also be easy to understand the processing of the functions. However, replacement of strings containing numbers or considering plurals is not supported, so if more advanced replacement is required, it is recommended to use [tpope/vim-abolish](https://github.com/tpope/vim-abolish).
 
 ## Installation
 
@@ -22,7 +22,7 @@ Plug 'kis9a/SmartCaseMatch'
 set smartcase
 set ignorecase
 
-nnoremap s* :SmartCaseMatchCursorKeyword<CR>
+nnoremap s* :SmartCaseMatchCursorString<CR>
 xnoremap s* :<C-U>SmartCaseMatchVisualSelected<CR>
 ```
 
