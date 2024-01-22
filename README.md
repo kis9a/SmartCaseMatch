@@ -38,7 +38,7 @@ Plug 'vim-scripts/SmartCase'
 
 ```vim
 nnoremap <Leader>sc :%SmartCase("")<Left><Left>
-xnoremap <Leader>sc :'<,'>%SmartCase("")<Left><Left>
+xnoremap <Leader>sc :SmartCase("")<Left><Left>
 ```
 
 <image width="640px" src="https://raw.githubusercontent.com/kis9a/SmartCaseMatch/main/doc/smartcasematch_01.gif"></image>

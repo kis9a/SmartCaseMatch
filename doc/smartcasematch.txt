@@ -38,7 +38,7 @@ xnoremap s# :<C-U>SmartCaseMatchVisualSelected<CR>
   Plug 'vim-scripts/SmartCase'
 
 nnoremap <Leader>sc :%SmartCase('')<Left><Left>
-xnoremap <Leader>sc :'<,'>%SmartCase('')<Left><Left>
+xnoremap <Leader>sc :SmartCase('')<Left><Left>
 
   vimgrep
 
