@@ -14,8 +14,8 @@ if !exists('g:smartcasematch_split_pattern')
   let g:smartcasematch_split_pattern = '\l\+\|\u\l\+\|\u\+\l\@!\|\d\+'
 endif
 
-if !exists('g:smartcasematch_last_mached_pattern')
-  let g:smartcasematch_last_mached_pattern = ''
+if !exists('g:smartcasematch_last_matched_pattern')
+  let g:smartcasematch_last_matched_pattern = ''
 endif
 
 function! SmartCaseMatch(string)
@@ -42,8 +42,8 @@ function! SmartCaseMatchPattern(string)
       break
     endif
   endwhile
-  let g:smartcasematch_last_mached_pattern = matchPattern
-  return g:smartcasematch_last_mached_pattern
+  let g:smartcasematch_last_matched_pattern = matchPattern
+  return g:smartcasematch_last_matched_pattern
 endfunction
 
 function! smartcasematch#CursorString()

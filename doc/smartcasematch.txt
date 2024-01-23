@@ -11,7 +11,7 @@ VARIABLES                                          *smartcasematch-variables*
 g:smartcasematch_separator_pattern
 g:smartcasematch_string_pattern
 g:smartcasematch_split_pattern
-g:smartcasematch_last_mached_pattern
+g:smartcasematch_last_matched_pattern
 
 ==============================================================================
 COMMANDS                                            *smartcasematch-commands*
@@ -43,7 +43,7 @@ xnoremap <Leader>sc :SmartCase('')<Left><Left>
   vimgrep
 
 nnoremap sg :vimgrep <C-R>=string(SmartCaseMatchPattern(''))<Left><Left><Left>
-nnoremap <Leader>sg :cdo s/<C-R>=printf(g:smartcasematch_last_mached_pattern)<CR>/\=SmartCase('')<Left><Left>
+nnoremap <Leader>sg :cdo s/<C-R>=printf(g:smartcasematch_last_matched_pattern)<CR>/\=SmartCase('')<Left><Left>
 
 ==============================================================================
 vim:tw=78:ts=8:ft=help:norl
